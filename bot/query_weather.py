@@ -6,4 +6,4 @@ def get_weather(lat, lon, api_key):
         f"https://api.openweathermap.org/data/2.5/onecall?lat"
         f"={lat}&lon={lon}&exclude=hourly&appid={api_key}&"
         f"units=metric").json()
-    return weather_respons
+    return weather_response
