@@ -2,6 +2,9 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from twilio.twiml.messaging_response import MessagingResponse
 
+from .query_weather import get_weather
+from django.conf import settings
+
 # Create your views here.
 @csrf_exempt
 def webhook(request):
