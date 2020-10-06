@@ -15,5 +15,5 @@ def webhook(request):
             weather_response = get_weather(lat, lon, settings.OPEN_WEATHER_API_KEY)
         message = request.POST.get("Body")
         print(message)
-        response.message('You said: ' + message)
+        response.message('Rafiki, you said: ' + message)
     return HttpResponse(response.to_xml(), content_type='text/xml')
