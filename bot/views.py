@@ -10,6 +10,9 @@ from django.conf import settings
 def webhook(request):
     response = MessagingResponse()
     if request.method == "POST":
+        lat, lon = request.POST.get('Latitude'), request.POST.get('Longitude')
+        if lat and lon:
+            weather_response = get_weather(lat, lon, settings.OPEN_WEATHER_API_KEY)
         message = request.POST.get("Body")
         print(message)
         response.message('You said: ' + message)
