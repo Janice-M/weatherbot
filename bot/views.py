@@ -13,7 +13,9 @@ def webhook(request):
         lat, lon = request.POST.get('Latitude'), request.POST.get('Longitude')
         if lat and lon:
             weather_response = get_weather(lat, lon, settings.OPEN_WEATHER_API_KEY)
-        message = request.POST.get("Body")
-        print(message)
-        response.message('Rafiki, you said: ' + message)
+            message_body = generate_weather_message(weather_response)
+            response.message(message_body)
+        else:
+            response.message("Send your location")
+
     return HttpResponse(response.to_xml(), content_type='text/xml')
