@@ -32,3 +32,5 @@ def generate_weather_message(weather_response):
         forecast_message = f"{weekday}: {description}, " \
                             f"Low {max_temp}°C, High {min_temp}°C  \n"
         forecast_messages.append(forecast_message)
+        
+    forecast_messages = "\n".join(forecast_messages)
