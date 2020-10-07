@@ -22,3 +22,13 @@ def generate_weather_message(weather_response):
             weather_response["current"]["weather"][0]["main"]
 
     }
+    forecast_messages = []
+    for daily_weather in weather_response["daily"]:
+        max_temp = daily_weather["temp"]["max"]
+        min_temp = daily_weather["temp"]["min"]
+        weekday = calendar.day_name[datetime.fromtimestamp(
+            daily_weather["dt"]).weekday()]
+        description = daily_weather["weather"][0]["description"]
+        forecast_message = f"{weekday}: {description}, " \
+                            f"Low {max_temp}°C, High {min_temp}°C  \n"
+        forecast_messages.append(forecast_message)
