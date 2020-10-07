@@ -4,7 +4,6 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 from .query_weather import get_weather, generate_weather_message
 from django.conf import settings
-from django.conf import settings
 
 # Create your views here.
 @csrf_exempt
