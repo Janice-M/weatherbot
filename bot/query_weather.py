@@ -34,3 +34,12 @@ def generate_weather_message(weather_response):
         forecast_messages.append(forecast_message)
         
     forecast_messages = "\n".join(forecast_messages)
+    
+            message_body = f" *Current Weather* \n \n"\
+                    f"{current_weather['day_of_week']}: "\
+                    f"{current_weather['description']}, "\
+                    f"{current_weather['temperature']} °C \n \n"\
+                    f" *Forecast* \n \n"\
+                    f"{forecast_messages}"
+
+    return message_body
